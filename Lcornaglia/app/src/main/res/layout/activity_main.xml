@@ -1,0 +1,117 @@
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/pizzeriaonline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡¡PIZZERIA ONLINE!!"
+            />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:background="@drawable/logopizza"
+            android:layout_column="1"/>
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Spinner
+            android:id="@+id/SpinnerPizzas"
+            android:layout_width="150dp"
+            android:layout_height="153dp"
+            android:layout_below="@+id/pizzeriaonline"/>
+
+        <RadioGroup
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/logo"
+            android:id="@+id/radiogrp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En Local"/>
+
+            <RadioButton
+                android:id="@+id/domicilio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Envio Domicilio"/>
+
+        </RadioGroup>
+
+    </TableRow>
+
+    <TableRow>
+        <CheckBox
+            android:text="+ Grande"
+            android:id="@+id/chkBoxGrande"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <CheckBox
+            android:text="+ Ingredientes"
+            android:id="@+id/chkBoxIngredientes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <CheckBox
+            android:text="+ Queso"
+            android:id="@+id/chkBoxQueso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </TableRow>
+
+    <TableRow>
+        <EditText
+            android:layout_below="@+id/chkBoxGrande"
+            android:id="@+id/entry"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="Numero de unidades:"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/totalpedido"
+            android:text="TOTAL PEDIDO"
+            />
+
+        <TextView
+            android:id="@+id/preciofinal"
+            android:clickable="false"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="$$$$"
+            android:layout_column="1" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/factura"
+            android:layout_column="1"
+            android:text="Ver factura"/>
+    </TableRow>
+
+</TableLayout>
