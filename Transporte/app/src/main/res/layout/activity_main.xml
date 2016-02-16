@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <Spinner
+        android:id="@+id/Zonas"
+        android:layout_width="200px"
+        android:layout_height="250px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/tarifas"
+        android:layout_toStartOf="@+id/tarifanormal"
+        android:layout_toLeftOf="@+id/tarifanormal"
+        android:layout_alignTop="@+id/Imagen">
+
+    </Spinner>
+
+    <ImageView
+        android:src="@drawable/logo"
+        android:id="@+id/Imagen"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_above="@+id/tarifanormal"
+        android:layout_toRightOf="@+id/Zonas"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+    </ImageView>
+
+    <RadioGroup
+        android:layout_below="@+id/Imagen"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="80px"
+        android:id="@+id/tarifas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </RadioGroup>
+
+
+    <CheckBox
+        android:text="@string/regalo"
+        android:id="@+id/cajaregalo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Zonas"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:text="@string/dedicada"
+        android:id="@+id/tarjetadedicada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tarifaurgente"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:hint="@string/hint"
+        android:id="@+id/pesopaquete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tarjetadedicada"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="37dp"
+        android:layout_toLeftOf="@+id/tarifaurgente"
+        android:layout_toStartOf="@+id/tarifaurgente" />
+
+    <Button
+        android:id="@+id/hacercalculos"
+        android:text="@string/hacercalculos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="hacercalculosDisplay"
+        android:layout_alignTop="@+id/pesopaquete"
+        android:layout_toEndOf="@+id/pesopaquete"
+        android:layout_alignBottom="@+id/pesopaquete"
+        android:layout_toRightOf="@+id/pesopaquete" />
+
+    <RadioButton
+        android:id="@+id/tarifanormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tarifanor"
+        android:layout_above="@+id/tarifaurgente"
+        android:layout_alignLeft="@+id/tarifaurgente"
+        android:layout_alignStart="@+id/tarifaurgente" />
+
+    <RadioButton
+        android:id="@+id/tarifaurgente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tarifaurg"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/tarjetadedicada"
+        android:layout_toEndOf="@+id/tarjetadedicada" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciado sesión como:"
+        android:id="@+id/sesion"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/Zonas"
+        android:layout_toLeftOf="@+id/Imagen"
+        android:layout_toStartOf="@+id/Imagen" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:id="@+id/usuarioIniciado"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/sesion"
+        android:layout_above="@+id/Zonas"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Transporte</string>
+    <string name="action_settings">Settings</string>
+    <string name="tarifanor">Tarifa Normal</string>
+    <string name ="tarifaurg">Tarifa Urgente</string>
+    <string name="regalo">Caja regalo</string>
+    <string name="dedicada">Con tarjeta dedicada</string>
+    <string name="hint">Introduce el peso del paquete:</string>
+    <string name="hacercalculos">Hacer cálculos!</string>
+</resources>
