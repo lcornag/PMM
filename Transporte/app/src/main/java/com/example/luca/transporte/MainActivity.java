@@ -99,7 +99,6 @@ public class MainActivity extends Activity {
                 }
                 else {
                     urgencia ="Tarifa urgente";
-                    //precioExtra = precioExtra+(pr*30)/100;
                 }
             }
         });
@@ -108,7 +107,7 @@ public class MainActivity extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(cajaregalo.isChecked()){
-                    preferencia += " con caja regalo ";
+                    preferencia += "con caja regalo ";
                 }
                 else{
                     preferencia = "ninguna";
@@ -163,8 +162,6 @@ public class MainActivity extends Activity {
                     bundle.putString("Urgencia", urgencia);
                     bundle.putInt("Imagen", img);
                     precioFinal = pr + precioExtra;
-                    Toast.makeText(MainActivity.this, ""+precioExtra, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(MainActivity.this, ""+precioFinal, Toast.LENGTH_SHORT).show();
                     bundle.putDouble("Precio Final", precioFinal);
                     bundle.putString("Usuario", usuarioIniciado.getText().toString());
                     intent.putExtras(bundle);
