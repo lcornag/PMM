@@ -128,7 +128,6 @@ public class MainActivity extends Activity {
             }
         });
 
-        Toast.makeText(MainActivity.this, ""+precioExtra, Toast.LENGTH_SHORT).show();
         hacercalculos = (Button)findViewById(R.id.hacercalculos);
         hacercalculos.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
