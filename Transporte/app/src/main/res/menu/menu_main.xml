@@ -8,4 +8,8 @@
     <item
         android:id="@+id/dibujo"
         android:title="Dibujo empresa" />
+
+    <item
+        android:id="@+id/leerNoticias"
+        android:title="Leer Noticias" />
 </menu>

@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
-    String cadSQL = "CREATE TABLE Destinos IF NOT EXISTS (id INTEGER PRIMARY KEY, zona TEXT, continente TEXT, imagen INTEGER, precio TEXT )";
-    String cadSQLUsuarios = "CREATE TABLE Usuarios IF NOT EXISTS (id INTEGER PRIMARY KEY, nombre TEXT, password TEXT)";
+    String cadSQL = "CREATE TABLE Destinos (id INTEGER PRIMARY KEY, zona TEXT,continente TEXT, imagen INTEGER, precio TEXT )";
+    String cadSQLUsuarios = "CREATE TABLE Usuarios (id INTEGER PRIMARY KEY, nombre TEXT, password TEXT)";
     String cadListar = "SELECT * FROM Destinos";
     String cadListarU = "SELECT * FROM Usuarios";
 

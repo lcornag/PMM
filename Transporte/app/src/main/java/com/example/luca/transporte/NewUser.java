@@ -36,7 +36,7 @@ public class NewUser extends AppCompatActivity{
             public void onClick(View v) {
                 usuario = entryUsuario.getText().toString();
                 contraseña = entryContraseña.getText().toString();
-                if( usuario!=null && contraseña!=null){
+                if( usuario.length()>0 && contraseña.length()>0){
                     usuarios = new Usuarios(usuario, contraseña);
                     cliBD=new SQLiteHelper(NewUser.this, "DBClientes", null, 1);
                     db=cliBD.getWritableDatabase();
@@ -46,6 +46,10 @@ public class NewUser extends AppCompatActivity{
                     cliBD.close();
                     db.close();
                 }
+                else{
+                    Toast.makeText(NewUser.this, "Asegurate de rellenar ambos campos", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }

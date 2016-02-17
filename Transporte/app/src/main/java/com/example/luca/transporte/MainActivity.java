@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ public class MainActivity extends Activity {
             };
 
     private RadioGroup tarifasRadio;
+    private RadioButton tarifanormal;
     private Button hacercalculos;
     private Spinner Zonas;
     private CheckBox cajaregalo, tarjetadedicada;
@@ -42,8 +44,9 @@ public class MainActivity extends Activity {
     double pr;
     double precioExtra;
     double precioFinal;
-    String urgencia;
-    String preferencia;
+    String urgencia = "Tarifa normal";
+    String preferencia = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +67,8 @@ public class MainActivity extends Activity {
                 })
                 .setNegativeButton("Seguir como Anónimo", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int x) {
-                        usuarioIniciado.setText("Anónimo");
-                        Toast.makeText(MainActivity.this, "Has iniciado sesión como usuario anónimo", Toast.LENGTH_LONG).show();
+                        usuarioIniciado.setText("Usuario: Anónimo");
+                        Toast.makeText(MainActivity.this, "Has iniciado sesión como usuario anónimo", Toast.LENGTH_SHORT).show();
                     }
                 })
                     .setIcon(android.R.drawable.ic_dialog_alert)
@@ -74,13 +77,8 @@ public class MainActivity extends Activity {
         else {
             bundle = getIntent().getExtras();
             String usuario = bundle.getString("Nombre");
-            usuarioIniciado.setText(usuario);
+            usuarioIniciado.setText("Usuario: "+usuario);
         }
-
-
-
-
-
 
         cajaregalo = (CheckBox)findViewById(R.id.cajaregalo);
         tarjetadedicada = (CheckBox)findViewById(R.id.tarjetadedicada);
@@ -92,13 +90,16 @@ public class MainActivity extends Activity {
         Zonas.setAdapter(adaptador);
 
         tarifasRadio = (RadioGroup)findViewById(R.id.tarifas);
-        tarifasRadio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {@Override
-        public void onCheckedChanged(RadioGroup group, int checkedId){
-                if(R.id.tarifanormal == tarifasRadio.getCheckedRadioButtonId()){
+
+
+        tarifasRadio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (R.id.tarifanormal == tarifasRadio.getCheckedRadioButtonId()) {
                     urgencia = "Tarifa normal";
-                }
-                else {
-                    urgencia ="Tarifa urgente";
+                } else {
+                    urgencia = "Tarifa urgente";
+                    precioExtra = precioExtra + (pr * 30) / 100;
                 }
             }
         });
@@ -107,7 +108,7 @@ public class MainActivity extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(cajaregalo.isChecked()){
-                    preferencia += "con caja regalo ";
+                    preferencia += " con caja regalo ";
                 }
                 else{
                     preferencia = "ninguna";
@@ -119,10 +120,10 @@ public class MainActivity extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (tarjetadedicada.isChecked()) {
-                    preferencia += " con tarjeta dedicatoria ";
+                    preferencia = " con tarjeta dedicatoria ";
 
                 } else {
-                    preferencia= "ninguna";
+                    preferencia = "ninguna";
 
                 }
             }
@@ -167,6 +168,8 @@ public class MainActivity extends Activity {
 
                     precioExtra = 0;
                     pesoo=0;
+                    urgencia = "";
+
                     for(int i=0; i < zonas.length; i++){
                         if(zonas[i].getZona().equals(zon)) {
                             pr = Double.parseDouble(zonas[i].getPrecio());
@@ -185,12 +188,16 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.opcsesion:
-                Intent activityIntent = new Intent(this, Login.class);
-                startActivity(activityIntent);
+                Intent login = new Intent(this, Login.class);
+                startActivity(login);
                 return true;
             case R.id.dibujo:
                 Intent dibujo = new Intent(this,Dibujo.class);
                 startActivity(dibujo);
+                return true;
+            case R.id.leerNoticias:
+                Intent leerNoticias = new Intent(this, LeerNoticias.class);
+                startActivity(leerNoticias);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
